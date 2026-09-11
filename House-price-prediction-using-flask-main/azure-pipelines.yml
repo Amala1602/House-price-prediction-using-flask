@@ -8,7 +8,9 @@ pool:
 
 stages:
 
-# ---------------- BUILD AND TEST ----------------
+# ============================================================
+# BUILD AND TEST
+# ============================================================
 
 - stage: Build_Test
   displayName: 'Build and Run Tests'
@@ -80,7 +82,9 @@ stages:
       displayName: 'Publish Test Results Artifact'
 
 
-# ---------------- SONARCLOUD ANALYSIS ----------------
+# ============================================================
+# SONARCLOUD CODE QUALITY ANALYSIS
+# ============================================================
 
 - stage: SonarQube
   displayName: 'SonarCloud Code Quality Analysis'
@@ -107,7 +111,7 @@ stages:
     - task: SonarCloudPrepare@4
       inputs:
         SonarCloud: 'SonarQube-House-Project'
-        organization: 'maheshpasapala'
+        organization: 'amala1602'
         scannerMode: 'cli'
         configMode: 'manual'
         cliProjectKey: 'House-price-prediction-using-flask'
@@ -130,7 +134,9 @@ stages:
       displayName: 'Publish SonarCloud Quality Gate'
 
 
-# ---------------- RUN FLASK APPLICATION ----------------
+# ============================================================
+# RUN FLASK APPLICATION
+# ============================================================
 
 - stage: Run_Application
   displayName: 'Run Flask Application'
